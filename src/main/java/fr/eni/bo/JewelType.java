@@ -16,19 +16,15 @@ public class JewelType {
 	@NotNull(message = "Le nom est obligatoire")
 	private String name;
 	
-	private int size;
-	
-	public JewelType(int id, String name, int size) {
+	public JewelType(int id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.size = size;
 	}
 
-	public JewelType(String name, int size) {
+	public JewelType(String name) {
 		super();
 		this.name = name;
-		this.size = size;
 	}
 
 	public JewelType() {
@@ -51,14 +47,6 @@ public class JewelType {
 		this.name = name;
 	}
 
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -67,7 +55,6 @@ public class JewelType {
 		builder.append(", name=");
 		builder.append(name);
 		builder.append(", size=");
-		builder.append(size);
 		builder.append("]");
 		return builder.toString();
 	}
