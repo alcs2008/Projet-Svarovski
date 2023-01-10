@@ -2,6 +2,7 @@ package fr.eni.bo;
 
 
 import javax.persistence.*;
+import javax.swing.event.CaretListener;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.security.PrivateKey;
@@ -180,7 +181,7 @@ public class user {
     public void setIs_admin(boolean is_admin) {
         this.is_admin = is_admin;
     }
-    public List<Cart> cartList() { return lstCourses; }
+    public List<Cart> cartList() { return cartList; }
     public void setCartList(List<Cart> cartList) {
         if (cartList == null)
             this.cartList = new ArrayList<>();
