@@ -1,7 +1,6 @@
 package fr.eni.bo;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 public class JewelSize {

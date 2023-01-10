@@ -40,11 +40,11 @@ public class User {
     private boolean is_admin;
 
     @OneToMany
-    @NotEmpty(message="Panier vide")
+    @NotEmpty(message = "Panier vide")
     private List<Cart> cartList;
 
 
-// Constructeurs
+    // Constructeurs
     public User() {
     }
 
@@ -84,8 +84,8 @@ public class User {
     }
 
 
-// Getters Setters
-        public int getId() {
+    // Getters Setters
+    public int getId() {
         return id;
     }
 
@@ -176,10 +176,15 @@ public class User {
     public boolean isIs_admin() {
         return is_admin;
     }
+
     public void setIs_admin(boolean is_admin) {
         this.is_admin = is_admin;
     }
-    public List<Cart> cartList() { return cartList; }
+
+    public List<Cart> cartList() {
+        return cartList;
+    }
+
     public void setCartList(List<Cart> cartList) {
         if (cartList == null)
             this.cartList = new ArrayList<>();
@@ -190,24 +195,24 @@ public class User {
 
 // Méthode ToString
 
-        @Override
-        public String toString () {
-            return "user{" +
-                    "id=" + id +
-                    ", login='" + login + '\'' +
-                    ", password='" + password + '\'' +
-                    ", gender='" + gender + '\'' +
-                    ", firstname='" + firstname + '\'' +
-                    ", lastname='" + lastname + '\'' +
-                    ", email='" + email + '\'' +
-                    ", phone='" + phone + '\'' +
-                    ", adress='" + adress + '\'' +
-                    ", zipCode='" + zipCode + '\'' +
-                    ", city='" + city + '\'' +
-                    ", is_admin=" + is_admin +
-                    ", cartList=" + cartList +
-                    '}';
-        }
-
-
+    @Override
+    public String toString() {
+        return "user{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", adress='" + adress + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", city='" + city + '\'' +
+                ", is_admin=" + is_admin +
+                ", cartList=" + cartList +
+                '}';
     }
+
+
+}
