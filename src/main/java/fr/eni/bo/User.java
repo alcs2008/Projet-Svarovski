@@ -1,16 +1,13 @@
 package fr.eni.bo;
 
-
 import javax.persistence.*;
-import javax.swing.event.CaretListener;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class user {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,15 +39,15 @@ public class user {
     private boolean is_admin;
 
     @OneToMany
-    @NotEmpty(message="Panier vide")
+    @NotEmpty(message = "Panier vide")
     private List<Cart> cartList;
 
 
-// Constructeurs
-    public user() {
+    // Constructeurs
+    public User() {
     }
 
-    public user(String login, String password, String gender, String firstname,
+    public User(String login, String password, String gender, String firstname,
                 String lastname, String email, String phone, String adress,
                 String zipCode, String city, boolean is_admin, List<Cart> cartList) {
         this.login = login;
@@ -67,7 +64,7 @@ public class user {
         this.cartList = cartList;
     }
 
-    public user(int id, String login, String password, String gender,
+    public User(int id, String login, String password, String gender,
                 String firstname, String lastname, String email, String phone,
                 String adress, String zipCode, String city, boolean is_admin, List<Cart> cartList) {
         this.id = id;
@@ -86,8 +83,8 @@ public class user {
     }
 
 
-// Getters Setters
-        public int getId() {
+    // Getters Setters
+    public int getId() {
         return id;
     }
 
@@ -178,16 +175,21 @@ public class user {
     public boolean isIs_admin() {
         return is_admin;
     }
+
     public void setIs_admin(boolean is_admin) {
         this.is_admin = is_admin;
     }
-    public List<Cart> cartList() { return cartList; }
+
+    public List<Cart> cartList() {
+        return cartList;
+    }
+
     public void setCartList(List<Cart> cartList) {
         if (cartList == null)
             this.cartList = new ArrayList<>();
         else
             this.cartList = cartList;
-
+    }
 
 // Méthode ToString
 
@@ -210,4 +212,4 @@ public class user {
                 '}';
     }
 
-
+}
