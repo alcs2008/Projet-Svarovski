@@ -2,15 +2,13 @@ package fr.eni.bo;
 
 
 import javax.persistence.*;
-import javax.swing.event.CaretListener;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class user {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,12 +45,12 @@ public class user {
 
 
 // Constructeurs
-    public user() {
+    public User() {
     }
 
-    public user(String login, String password, String gender, String firstname,
-                String lastname, String email, String phone, String adress,
-                String zipCode, String city, boolean is_admin, List<Cart> cartList) {
+    public void user(String login, String password, String gender, String firstname,
+                     String lastname, String email, String phone, String adress,
+                     String zipCode, String city, boolean is_admin, List<Cart> cartList) {
         this.login = login;
         this.password = password;
         this.gender = gender;
@@ -67,9 +65,9 @@ public class user {
         this.cartList = cartList;
     }
 
-    public user(int id, String login, String password, String gender,
-                String firstname, String lastname, String email, String phone,
-                String adress, String zipCode, String city, boolean is_admin, List<Cart> cartList) {
+    public void user(int id, String login, String password, String gender,
+                     String firstname, String lastname, String email, String phone,
+                     String adress, String zipCode, String city, boolean is_admin, List<Cart> cartList) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -187,27 +185,29 @@ public class user {
             this.cartList = new ArrayList<>();
         else
             this.cartList = cartList;
+    }
 
 
 // Méthode ToString
 
-    @Override
-    public String toString() {
-        return "user{" +
-                "id=" + id +
-                ", login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", gender='" + gender + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", adress='" + adress + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", city='" + city + '\'' +
-                ", is_admin=" + is_admin +
-                ", cartList=" + cartList +
-                '}';
+        @Override
+        public String toString () {
+            return "user{" +
+                    "id=" + id +
+                    ", login='" + login + '\'' +
+                    ", password='" + password + '\'' +
+                    ", gender='" + gender + '\'' +
+                    ", firstname='" + firstname + '\'' +
+                    ", lastname='" + lastname + '\'' +
+                    ", email='" + email + '\'' +
+                    ", phone='" + phone + '\'' +
+                    ", adress='" + adress + '\'' +
+                    ", zipCode='" + zipCode + '\'' +
+                    ", city='" + city + '\'' +
+                    ", is_admin=" + is_admin +
+                    ", cartList=" + cartList +
+                    '}';
+        }
+
+
     }
-
-
