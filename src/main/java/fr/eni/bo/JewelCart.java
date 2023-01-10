@@ -9,18 +9,18 @@ import javax.persistence.IdClass;
 public class JewelCart {
 
     @Id
-    private Jewel jewel;
+    private int jewel;
     @Id
-    private Cart cart;
+    private int cart;
     private int quantity;
 
-    public JewelCart(Jewel jewel, Cart cart, int quantity) {
+    public JewelCart(int jewel, int cart, int quantity) {
         this.jewel = jewel;
         this.cart = cart;
         this.quantity = quantity;
     }
 
-    public JewelCart(Cart cart, int quantity) {
+    public JewelCart(int cart, int quantity) {
         this.cart = cart;
         this.quantity = quantity;
     }
@@ -28,19 +28,19 @@ public class JewelCart {
     public JewelCart() {
     }
 
-    public Jewel getJewel() {
+    public int getJewel() {
         return jewel;
     }
 
-    public void setJewel(Jewel jewel) {
+    public void setJewel(int jewel) {
         this.jewel = jewel;
     }
 
-    public Cart getCart() {
+    public int getCart() {
         return cart;
     }
 
-    public void setCart(Cart cart) {
+    public void setCart(int cart) {
         this.cart = cart;
     }
 

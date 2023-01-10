@@ -6,10 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
-import java.security.PrivateKey;
 
 @Entity
-public class user {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,10 +39,10 @@ public class user {
     @NotNull(message = "Vous devez être admin pour effectuer cette action")
     private boolean is_admin;
 
-    public user() {
+    public User() {
     }
 
-    public user(String login, String password, String gender, String firstname,
+    public User(String login, String password, String gender, String firstname,
                 String lastname, String email, String phone, String adress,
                 String zipCode, String city, boolean is_admin) {
         this.login = login;
@@ -59,7 +58,7 @@ public class user {
         this.is_admin = is_admin;
     }
 
-    public user(int id, String login, String password, String gender,
+    public User(int id, String login, String password, String gender,
                 String firstname, String lastname, String email,
                 String phone, String adress, String zipCode,
                 String city, boolean is_admin) {
