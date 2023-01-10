@@ -1,12 +1,12 @@
 package fr.eni.bo;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.security.PrivateKey;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class user {
@@ -40,12 +40,18 @@ public class user {
     @NotNull(message = "Vous devez être admin pour effectuer cette action")
     private boolean is_admin;
 
+    @OneToMany
+    @NotEmpty(message="Panier vide")
+    private List<Cart> cartList;
+
+
+// Constructeurs
     public user() {
     }
 
     public user(String login, String password, String gender, String firstname,
                 String lastname, String email, String phone, String adress,
-                String zipCode, String city, boolean is_admin) {
+                String zipCode, String city, boolean is_admin, List<Cart> cartList) {
         this.login = login;
         this.password = password;
         this.gender = gender;
@@ -57,12 +63,12 @@ public class user {
         this.zipCode = zipCode;
         this.city = city;
         this.is_admin = is_admin;
+        this.cartList = cartList;
     }
 
     public user(int id, String login, String password, String gender,
-                String firstname, String lastname, String email,
-                String phone, String adress, String zipCode,
-                String city, boolean is_admin) {
+                String firstname, String lastname, String email, String phone,
+                String adress, String zipCode, String city, boolean is_admin, List<Cart> cartList) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -75,9 +81,12 @@ public class user {
         this.zipCode = zipCode;
         this.city = city;
         this.is_admin = is_admin;
+        this.cartList = cartList;
     }
 
-    public int getId() {
+
+// Getters Setters
+        public int getId() {
         return id;
     }
 
@@ -168,10 +177,18 @@ public class user {
     public boolean isIs_admin() {
         return is_admin;
     }
-
     public void setIs_admin(boolean is_admin) {
         this.is_admin = is_admin;
     }
+    public List<Cart> cartList() { return lstCourses; }
+    public void setCartList(List<Cart> cartList) {
+        if (cartList == null)
+            this.cartList = new ArrayList<>();
+        else
+            this.cartList = cartList;
+
+
+// Méthode ToString
 
     @Override
     public String toString() {
@@ -188,10 +205,8 @@ public class user {
                 ", zipCode='" + zipCode + '\'' +
                 ", city='" + city + '\'' +
                 ", is_admin=" + is_admin +
+                ", cartList=" + cartList +
                 '}';
     }
 
-
-
-}
 
