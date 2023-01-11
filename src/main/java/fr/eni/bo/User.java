@@ -1,6 +1,7 @@
 package fr.eni.bo;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +12,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    //@NotNull(message = "login obligatoire")
-    //private String login;
-
-   // @NotNull(message = "Le mot de passe est obligatoire")
+    @NotNull(message = "Le mot de passe est obligatoire")
     private String password;
+
+    @Transient
+    private String retypedPassword;
 
     private String gender;
 
@@ -26,6 +27,7 @@ public class User {
     private String lastName;
 
    // @NotNull(message = "L'email est obligatoire")
+    //@Email
     private String email;
 
     private String phone;
@@ -93,6 +95,26 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRetypedPassword() {
+        return retypedPassword;
+    }
+
+    public void setRetypedPassword(String retypedPassword) {
+        this.retypedPassword = retypedPassword;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public List<Cart> getCartList() {
+        return cartList;
     }
 
     public String getGender() {

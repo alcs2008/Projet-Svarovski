@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -24,7 +24,7 @@
                 <a href="/addjewel">Ajouter un bijou</a>
             </li>
             <li>
-                <a class="connect" href="/user/login" icon="/images/cartIcon.ico">Se connecter</a>
+                <a class="connect" href="/login" icon="/images/cartIcon.ico">Se connecter</a>
             </li>
         </ul>
     </nav>
@@ -34,8 +34,18 @@
 <hr>
 
 <main>
-    <h2>Connexion</h2>
-    <br>
+    <form action="/user/login" method="post" data-th-object="${user}">
+        <h2>Connexion</h2>
+        <ul>
+            <li><label for="inputEmail">Email </label> <input type="email" id="inputEmail" data-th-field="*{email}"></li>
+            <li><label for="inputPwd">Mot de passe : </label> <input type="password" id="inputPwd" data-th-field="*{password}"></li>
+            <a href="">Mot de passe oublié</a>
+            <li>
+                <button type="submit">Connexion</button>
+            </li>
+            <li><a href="/user/subscription">Pas encore inscrit ? Créez votre compte !</a></li>
+        </ul>
+    </form>
 </main>
 
 
