@@ -1,6 +1,5 @@
 package fr.eni.bo;
 
-import javax.persistence.IdClass;
 import java.io.Serializable;
 
 public class JewelCartId implements Serializable {
