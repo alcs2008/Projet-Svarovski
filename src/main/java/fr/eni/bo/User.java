@@ -1,8 +1,6 @@
 package fr.eni.bo;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,33 +11,32 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NotNull(message = "login obligatoire")
-    private String login;
+    //@NotNull(message = "login obligatoire")
+    //private String login;
 
-    @NotNull(message = "Mot de passe obligatoire")
+   // @NotNull(message = "Le mot de passe est obligatoire")
     private String password;
 
     private String gender;
 
-    @NotNull(message = "Prénom obligatoire")
-    private String firstname;
+   // @NotNull(message = "Le prénom est obligatoire")
+    private String firstName;
 
-    @NotNull(message = "Nom obligatoire")
-    private String lastname;
+   // @NotNull(message = "Le nom est obligatoire")
+    private String lastName;
 
-    @NotNull(message = "email obligatoire")
+   // @NotNull(message = "L'email est obligatoire")
     private String email;
 
     private String phone;
-    private String adress;
+    private String address;
     private String zipCode;
     private String city;
 
-    @NotNull(message = "Vous devez être admin pour effectuer cette action")
-    private boolean is_admin;
+   // @NotNull(message = "Vous devez être admin pour effectuer cette action")
+    private boolean isAdmin;
 
     @OneToMany
-    @NotEmpty(message = "Panier vide")
     private List<Cart> cartList;
 
 
@@ -47,38 +44,36 @@ public class User {
     public User() {
     }
 
-    public User(String login, String password, String gender, String firstname,
-                String lastname, String email, String phone, String adress,
-                String zipCode, String city, boolean is_admin, List<Cart> cartList) {
-        this.login = login;
+    public User(String password, String gender, String firstName,
+                String lastName, String email, String phone, String address,
+                String zipCode, String city, boolean isAdmin, List<Cart> cartList) {
         this.password = password;
         this.gender = gender;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
-        this.adress = adress;
+        this.address = address;
         this.zipCode = zipCode;
         this.city = city;
-        this.is_admin = is_admin;
+        this.isAdmin = isAdmin;
         this.cartList = cartList;
     }
 
-    public User(int id, String login, String password, String gender,
-                String firstname, String lastname, String email, String phone,
-                String adress, String zipCode, String city, boolean is_admin, List<Cart> cartList) {
+    public User(int id, String password, String gender,
+                String firstName, String lastName, String email, String phone,
+                String address, String zipCode, String city, boolean isAdmin, List<Cart> cartList) {
         this.id = id;
-        this.login = login;
         this.password = password;
         this.gender = gender;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
-        this.adress = adress;
+        this.address = address;
         this.zipCode = zipCode;
         this.city = city;
-        this.is_admin = is_admin;
+        this.isAdmin = isAdmin;
         this.cartList = cartList;
     }
 
@@ -90,14 +85,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getPassword() {
@@ -116,20 +103,20 @@ public class User {
         this.gender = gender;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstname) {
+        this.firstName = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastname) {
+        this.lastName = lastname;
     }
 
     public String getEmail() {
@@ -148,12 +135,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getZipCode() {
@@ -172,12 +159,12 @@ public class User {
         this.city = city;
     }
 
-    public boolean isIs_admin() {
-        return is_admin;
+    public boolean isIsAdmin() {
+        return isAdmin;
     }
 
-    public void setIs_admin(boolean is_admin) {
-        this.is_admin = is_admin;
+    public void setIsAdmin(boolean is_admin) {
+        this.isAdmin = is_admin;
     }
 
     public List<Cart> cartList() {
@@ -197,17 +184,16 @@ public class User {
     public String toString() {
         return "user{" +
                 "id=" + id +
-                ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", gender='" + gender + '\'' +
-                ", firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
+                ", firstname='" + firstName + '\'' +
+                ", lastname='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", adress='" + adress + '\'' +
+                ", adress='" + address + '\'' +
                 ", zipCode='" + zipCode + '\'' +
                 ", city='" + city + '\'' +
-                ", is_admin=" + is_admin +
+                ", is_admin=" + isAdmin +
                 ", cartList=" + cartList +
                 '}';
     }
