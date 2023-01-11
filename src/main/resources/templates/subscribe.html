@@ -6,15 +6,15 @@
 </head>
 <body>
 <main>
-  <form action="/subscription/create" method="post" data-th-object="${user}">
-    <h1>S'inscrire</h1>
+  <form action="/user/subscription" method="post" data-th-object="${user}">
+    <h2>S'inscrire</h2>
     <ul>
       <li><label for="inputLastName">Nom </label> <input type="text" id="inputLastName" data-th-field="*{lastName}"></li>
       <li><label for="inputFirstName">Prénom </label> <input type="text" id="inputFirstName" data-th-field="*{firstName}"></li>
       <li><label for="inputEmail">Email </label> <input type="email" id="inputEmail" data-th-field="*{email}"></li>
       <li><label for="inputPhone">Téléphone </label> <input type="phone" id="inputPhone" data-th-field="*{phone}"></li>
       <li><label for="inputPwd">Mot de passe : </label> <input type="password" id="inputPwd" data-th-field="*{password}"></li>
-      <li><label for="inputPwdConfirm">Confirmation Mot de passe : </label> <input type="password" id="inputPwdConfirm" name="passwordConfirm"></li>
+      <li><label for="retypedPassword">Confirmation Mot de passe : </label> <input type="password" id="retypedPassword" data-th-field="*{retypedPassword}"></li>
 
       <li><label for="inputAddress">Adresse : </label> <input type="text" id="inputAddress" data-th-field="*{address}"></li>
       <li><label for="inputZipCode">Code Postal : </label> <input type="text" id="inputZipCode" data-th-field="*{zipCode}"></li>

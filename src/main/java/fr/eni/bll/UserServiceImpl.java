@@ -12,7 +12,13 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     public void createNewUser(User user){
-        //verif confirm mot de passe
-        userDao.save(user);
+        if(user.getPassword().equals(user.getRetypedPassword())){
+            userDao.save(user);
+        }
+    }
+
+    public User connectUser(String email, String password) {
+        User user = userDao.getUserByEmailAndPassword(email, password);
+        return user;
     }
 }
