@@ -41,3 +41,13 @@ item
 footer{
 margin-bottom:0;
 }
+
+img {
+width : 60px;
+height : 60px;
+}
+
+#banniere{
+width : 1084px;
+height : 240px;
+}

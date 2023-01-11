@@ -8,126 +8,95 @@ public class Jewel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int jewelId;
+    //@NotNull(message = "Le nom est obligatoire")
+    private String jewelName;
+    private String jewelType;
+    private String jewelSize;
+    private String jewelDescriptive;
+    //@NotNull(message = "Le prix est obligatoire")
+    private float jewelPrice;
+    //@NotNull(message = "La photo est obligatoire")
+    private String jewelPhoto;
+    //@NotNull(message = "Le stock est obligatoire")
+    private int jewelStock;
 
-    @NotNull(message = "Le nom est obligatoire")
-    private String name;
-
-    private String description;
-
-    @NotNull(message = "Le prix est obligatoire")
-    private float price;
-
-    @NotNull(message = "La photo est obligatoire")
-    private String photo;
-
-    @NotNull(message = "Le stock est obligatoire")
-    private int stock;
-
-    @ManyToOne
-    private JewelType type;
-
+// 3 constructeurs
     public Jewel() {
-        super();
     }
 
-    public Jewel(int id, String name, String description, float price, String photo, int stock, JewelType idType) {
-        super();
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.photo = photo;
-        this.stock = stock;
-        this.type = idType;
+    public Jewel(String jewelName, String jewelType, String jewelSize,
+                 String jawelDescriptive, float jewelPrice,
+                 String jewelPhoto, int jewelStock) {
+        this.jewelName = jewelName;
+        this.jewelType = jewelType;
+        this.jewelSize = jewelSize;
+        this.jewelDescriptive = jawelDescriptive;
+        this.jewelPrice = jewelPrice;
+        this.jewelPhoto = jewelPhoto;
+        this.jewelStock = jewelStock;
     }
 
-    public Jewel(String name, String description, float price, String photo, int stock, JewelType idType) {
-        super();
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.photo = photo;
-        this.stock = stock;
-        this.type = idType;
+    public Jewel(int jewelId, String jewelName, String jewelType,
+                 String jewelSize, String jawelDescriptive,
+                 float jewelPrice, String jewelPhoto, int jewelStock) {
+        this.jewelId = jewelId;
+        this.jewelName = jewelName;
+        this.jewelType = jewelType;
+        this.jewelSize = jewelSize;
+        this.jewelDescriptive = jawelDescriptive;
+        this.jewelPrice = jewelPrice;
+        this.jewelPhoto = jewelPhoto;
+        this.jewelStock = jewelStock;
     }
 
-    public int getId() {
-        return id;
-    }
+// Getters / Setters
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public int getJewelId() {return jewelId;}
 
-    public String getName() {
-        return name;
-    }
+    public void setJewelId(int jewelId) {this.jewelId = jewelId;}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public String getJewelName() {return jewelName;}
 
-    public String getDescription() {
-        return description;
-    }
+    public void setJewelName(String jewelName) {this.jewelName = jewelName;}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public String getJewelType() {return jewelType;}
 
-    public float getPrice() {
-        return price;
-    }
+    public void setJewelType(String jewelType) {this.jewelType = jewelType;}
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
+    public String getJewelSize() {return jewelSize;}
 
-    public String getPhoto() {
-        return photo;
-    }
+    public void setJewelSize(String jewelSize) {this.jewelSize = jewelSize;}
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
+    public String getJawelDescriptive() {return jewelDescriptive;}
 
-    public int getStock() {
-        return stock;
-    }
+    public void setJawelDescriptive(String jawelDescriptive) {this.jewelDescriptive = jawelDescriptive;}
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
+    public float getJewelPrice() {return jewelPrice;}
 
-    public JewelType getIdType() {
-        return type;
-    }
+    public void setJewelPrice(float jewelPrice) {this.jewelPrice = jewelPrice;}
 
-    public void setIdType(JewelType idType) {
-        this.type = idType;
-    }
+    public String getJewelPhoto() {return jewelPhoto;}
+
+    public void setJewelPhoto(String jewelPhoto) {this.jewelPhoto = jewelPhoto;}
+
+    public int getJewelStock() {return jewelStock;}
+
+    public void setJewelStock(int jewelStock) {this.jewelStock = jewelStock;}
+
+// ToString Method
 
     @Override
     public String toString() {
-        StringBuilder builder = new StringBuilder();
-        builder.append("Jewel [id=");
-        builder.append(id);
-        builder.append(", name=");
-        builder.append(name);
-        builder.append(", description=");
-        builder.append(description);
-        builder.append(", price=");
-        builder.append(price);
-        builder.append(", photo=");
-        builder.append(photo);
-        builder.append(", stock=");
-        builder.append(stock);
-        builder.append(", idType=");
-        builder.append(type);
-        builder.append("]");
-        return builder.toString();
+        return "Jewel{" +
+                "jewelId=" + jewelId +
+                ", jewelName='" + jewelName + '\'' +
+                ", jewelType='" + jewelType + '\'' +
+                ", jewelSize='" + jewelSize + '\'' +
+                ", jawelDescriptive='" + jewelDescriptive + '\'' +
+                ", jewelPrice=" + jewelPrice +
+                ", jewelPhoto='" + jewelPhoto + '\'' +
+                ", jewelStock=" + jewelStock +
+                '}';
     }
-
-
 }

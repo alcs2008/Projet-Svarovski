@@ -44,26 +44,26 @@
 
             <div id="formBijou">
                 <!--Création formulaire de création d'un nouveau bijou-->
-                <form action="/jewelcreate" method="post">
+                <form action="/jewelcreate" method="post" data-th-object="${jewel}">
 
                     <!--checkbox type de bijou-->
                     <div id="typeBijou">
-                        <fieldset>
+                        <fieldset data-th-field="*{jewelType}">
                             <legend >Type de bijou</legend>
                             <div>
-                                <input type="radio" id="ring" value="bague">
+                                <input type="radio" id="ring" value="bague" data-th-field="*{jewelType}">
                                 <label for="ring">Bagues</label>
                             </div>
                             <div>
-                                <input type="radio" id="earring" value="boucleOreille">
+                                <input type="radio" id="earring" value="boucleOreille" data-th-field="*{jewelType}">
                                 <label for="earring">Boucles d'oreille</label>
                             </div>
                             <div>
-                                <input type="radio" id="necklace" value="collier">
+                                <input type="radio" id="necklace" value="collier" data-th-field="*{jewelType}">
                                 <label for="necklace">Collier</label>
                             </div>
                             <div>
-                                <input type="radio" id="bracelet" value="bracelet">
+                                <input type="radio" id="bracelet" value="bracelet" data-th-field="*{jewelType}">
                                 <label for="bracelet">Bracelet</label>
                             </div>
                         </fieldset>
@@ -73,12 +73,12 @@
                     <!--Choix du nom du bijou-->
                     <div id="nomBijou">
                         <label for="jewelname">Nom du bijou</label>
-                        <input type="text" id="jewelname" required size="50">
+                        <input type="text" id="jewelname" required size="50" data-th-field="*{jewelName}">
                     </div>
                     <!--Choix de la taille du bijou-->
                     <div id="tailleBijou">
                         <label for="jewelsize">Taille</label>
-                        <select id="jewelsize">
+                        <select id="jewelsize" data-th-field="*{jewelSize}">
                             <option value="">--Choisissez votre taille--</option>
                             <option value="1">XS</option>
                             <option value="2">S</option>
@@ -91,7 +91,7 @@
                     <!--Description du bijou à saisir-->
                     <div id="descriptionBijou">
                         <label for="jeweldescription">Description</label>
-                        <textarea id="jeweldescription" rows="8" cols="33">
+                        <textarea id="jeweldescription" rows="8" cols="33" data-th-field="*{jewelDescriptive}">
 
                         </textarea>
                     </div>
@@ -99,7 +99,7 @@
                     <!--Prix du bijou à saisir-->
                     <div id="prixBijou">
                         <label for="Jewelprice">Prix</label>
-                        <input type="text" id="Jewelprice" required size="10">
+                        <input type="text" id="Jewelprice" required size="10" data-th-field="*{jewelPrice}">
                     </div>
 
                     <!--Bouton 'enregistrer nouveau bijou-->
