@@ -31,6 +31,7 @@ public class UserController {
 
     @PostMapping("/subscription")
     public String createUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult){
+        //TODO le premier if ne marche pas
         if(bindingResult.hasErrors()){
             return "subscribe";
         } else {

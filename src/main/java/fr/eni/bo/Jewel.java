@@ -11,7 +11,8 @@ public class Jewel {
     private int jewelId;
     //@NotNull(message = "Le nom est obligatoire")
     private String jewelName;
-    private String jewelType;
+    @ManyToOne
+    private JewelType jewelType;
     private String jewelSize;
     private String jewelDescriptive;
     //@NotNull(message = "Le prix est obligatoire")
@@ -25,31 +26,26 @@ public class Jewel {
     public Jewel() {
     }
 
-    public Jewel(String jewelName, String jewelType, String jewelSize,
-                 String jawelDescriptive, float jewelPrice,
-                 String jewelPhoto, int jewelStock) {
-        this.jewelName = jewelName;
-        this.jewelType = jewelType;
-        this.jewelSize = jewelSize;
-        this.jewelDescriptive = jawelDescriptive;
-        this.jewelPrice = jewelPrice;
-        this.jewelPhoto = jewelPhoto;
-        this.jewelStock = jewelStock;
-    }
-
-    public Jewel(int jewelId, String jewelName, String jewelType,
-                 String jewelSize, String jawelDescriptive,
-                 float jewelPrice, String jewelPhoto, int jewelStock) {
+    public Jewel(int jewelId, String jewelName, JewelType jewelType, String jewelSize, String jewelDescriptive, float jewelPrice, String jewelPhoto, int jewelStock) {
         this.jewelId = jewelId;
         this.jewelName = jewelName;
         this.jewelType = jewelType;
         this.jewelSize = jewelSize;
-        this.jewelDescriptive = jawelDescriptive;
+        this.jewelDescriptive = jewelDescriptive;
         this.jewelPrice = jewelPrice;
         this.jewelPhoto = jewelPhoto;
         this.jewelStock = jewelStock;
     }
 
+    public Jewel(String jewelName, JewelType jewelType, String jewelSize, String jewelDescriptive, float jewelPrice, String jewelPhoto, int jewelStock) {
+        this.jewelName = jewelName;
+        this.jewelType = jewelType;
+        this.jewelSize = jewelSize;
+        this.jewelDescriptive = jewelDescriptive;
+        this.jewelPrice = jewelPrice;
+        this.jewelPhoto = jewelPhoto;
+        this.jewelStock = jewelStock;
+    }
 // Getters / Setters
 
     public int getJewelId() {return jewelId;}
@@ -60,9 +56,21 @@ public class Jewel {
 
     public void setJewelName(String jewelName) {this.jewelName = jewelName;}
 
-    public String getJewelType() {return jewelType;}
+    public JewelType getJewelType() {
+        return jewelType;
+    }
 
-    public void setJewelType(String jewelType) {this.jewelType = jewelType;}
+    public void setJewelType(JewelType jewelType) {
+        this.jewelType = jewelType;
+    }
+
+    public String getJewelDescriptive() {
+        return jewelDescriptive;
+    }
+
+    public void setJewelDescriptive(String jewelDescriptive) {
+        this.jewelDescriptive = jewelDescriptive;
+    }
 
     public String getJewelSize() {return jewelSize;}
 

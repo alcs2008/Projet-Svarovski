@@ -2,20 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Ajouter un bijou</title>
-    <meta content="width=device-width, initial-scale=1" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-          name="viewport">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <title>TP ENI</title>
 </head>
 <body>
-
 <header>
     <h1>Svarovski</h1>
+    <div id="sv-img"></div>
     <hr>
+    <!--<div class="headerImg"><img src="/images/banniereImg.jpg"></div>-->
     <nav>
         <ul class="sv-navbar-home">
             <li>
-                <a href="index.html">Accueil</a>
+                <a href="/">Accueil</a>
             </li>
             <li>
                 <a href="/jewel">Nos bijoux</a>
@@ -23,104 +21,168 @@
             <li>
                 <a href="/addjewel">Ajouter un bijou</a>
             </li>
-            <li>
-                <!--Redirection à faire via fichier Ana-->
-                <!--<div>
-                   <p><a href="/login">Se connecter</a></p>
-                    <img id="logocart" src="/images/cartIcon.ico" >
-                </div>-->
-            </li>
+            <li><a href="/user/login">Se connecter</a></li>
         </ul>
     </nav>
     </div>
 
     <hr>
 
-    <main>
-        <h2>Ajouter un bijou</h2>
-        <br>
-
-        <div class="container">
-
-            <div id="formBijou">
-                <!--Création formulaire de création d'un nouveau bijou-->
-                <form action="/jewelcreate" method="post">
-
-                    <!--checkbox type de bijou-->
-                    <div id="typeBijou">
-                        <fieldset>
-                            <legend >Type de bijou</legend>
-                            <div>
-                                <input type="radio" id="ring" value="bague">
-                                <label for="ring">Bagues</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="earring" value="boucleOreille">
-                                <label for="earring">Boucles d'oreille</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="necklace" value="collier">
-                                <label for="necklace">Collier</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="bracelet" value="bracelet">
-                                <label for="bracelet">Bracelet</label>
-                            </div>
-                        </fieldset>
-                    </div>
-
-                    <hr>
-                    <!--Choix du nom du bijou-->
-                    <div id="nomBijou">
-                        <label for="jewelname">Nom du bijou</label>
-                        <input type="text" id="jewelname" required size="50">
-                    </div>
-                    <!--Choix de la taille du bijou-->
-                    <div id="tailleBijou">
-                        <label for="jewelsize">Taille</label>
-                        <select id="jewelsize">
-                            <option value="">--Choisissez votre taille--</option>
-                            <option value="1">XS</option>
-                            <option value="2">S</option>
-                            <option value="3">M</option>
-                            <option value="4">L</option>
-                            <option value="5">XL</option>
-                        </select>
-                    </div>
-
-                    <!--Description du bijou à saisir-->
-                    <div id="descriptionBijou">
-                        <label for="jeweldescription">Description</label>
-                        <textarea id="jeweldescription" rows="8" cols="33">
-
-                        </textarea>
-                    </div>
-
-                    <!--Prix du bijou à saisir-->
-                    <div id="prixBijou">
-                        <label for="Jewelprice">Prix</label>
-                        <input type="text" id="Jewelprice" required size="10">
-                    </div>
-
-                    <!--Bouton 'enregistrer nouveau bijou-->
-                    <div id="ValiderBijou">
-                        <button type="submit">Enregistrer</button>
-                    </div>
-
-                </form>
-            </div>
-
-
-        </div>
-
-    </main>
-
 </header>
+<main>
+    <form action="/jewel/addjewel" method="post" data-th-object="${jewel}">
+        <h2>Ajouter un bijou</h2>
+        <ul>
+            <li><label for="inputJewelName">Nom du bijou</label><input type="text" name="inputJewelName" id="inputJewelName" data-th-field="*{jewelName}"></li>
+
+                <label for="inputJewelType">Type de bijou : </label>
+                <select id="inputJewelType" data-th-field="*{jewelType}" required>
+                    <option data-th-each="type : ${allType}"
+                            data-th-text="${type.name}"
+                            data-th-value="${type.id}">
+                    </option>
+                </select>
 
 
+            <li><label for="inputJewelDescriptive">Description</label> <input type="text" id="inputJewelDescriptive" data-th-field="*{jewelDescriptive}"></li>
+            <li><label for="inputJewelPrice">Prix</label> <input type="text" id="inputJewelPrice" data-th-field="*{jewelPrice}"></li>
+
+            <button type="submit">Valider</button>
+            </li>
+        </ul>
+    </form>
+</main>
 <footer>
     <span><a href="/ml">Mentions légales          </a></span>
     <span><a href="/cgv">| Conditions générales de vente</a></span>
 </footer>
 </body>
 </html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Ajouter un bijou</title>-->
+<!--    <meta content="width=device-width, initial-scale=1" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"-->
+<!--          name="viewport">-->
+<!--    <link href="/css/style.css" rel="stylesheet" type="text/css">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<header>-->
+<!--    <h1>Svarovski</h1>-->
+<!--    <hr>-->
+<!--    <nav>-->
+<!--        <ul class="sv-navbar-home">-->
+<!--            <li>-->
+<!--                <a href="/">Accueil</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="/jewel">Nos bijoux</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="/addjewel">Ajouter un bijou</a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                &lt;!&ndash;Redirection à faire via fichier Ana&ndash;&gt;-->
+<!--                &lt;!&ndash;<div>-->
+<!--                   <p><a href="/login">Se connecter</a></p>-->
+<!--                    <img id="logocart" src="/images/cartIcon.ico" >-->
+<!--                </div>&ndash;&gt;-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--    </div>-->
+
+<!--    <hr>-->
+
+<!--    <main>-->
+<!--        <h2>Ajouter un bijou</h2>-->
+<!--        <br>-->
+
+<!--        <div class="container">-->
+
+<!--            <div id="formBijou">-->
+<!--                &lt;!&ndash;Création formulaire de création d'un nouveau bijou&ndash;&gt;-->
+<!--                <form action="/jewelcreate" method="post" data-th-object="${jewel}>-->
+
+<!--                    &lt;!&ndash;checkbox type de bijou&ndash;&gt;-->
+<!--                    <div id="typeBijou">-->
+<!--                        <fieldset>-->
+<!--                            <legend >Type de bijou</legend>-->
+<!--                            <div>-->
+<!--                                <input name="option1" type="radio" id="ring" data-th-field="">-->
+<!--                                <label for="ring">Bagues</label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <input  name="option2" type="radio" id="earring" value="2">-->
+<!--                                <label for="earring">Boucles d'oreille</label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <input name="option3" type="radio" id="necklace" value="3">-->
+<!--                                <label for="necklace">Collier</label>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <input name="option4" type="radio" id="bracelet" value="4">-->
+<!--                                <label for="bracelet">Bracelet</label>-->
+<!--                            </div>-->
+<!--                        </fieldset>-->
+<!--                    </div>-->
+
+<!--                    <hr>-->
+<!--                    &lt;!&ndash;Choix du nom du bijou&ndash;&gt;-->
+<!--                    <div id="nomBijou">-->
+<!--                        <label for="jewelname">Nom du bijou</label>-->
+<!--                        <input type="text" id="jewelname" required size="50" data-th-field="*{jewelName}>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash;Choix de la taille du bijou&ndash;&gt;-->
+<!--                    <div id="tailleBijou">-->
+<!--                        <label for="jewelsize">Taille</label>-->
+<!--                        <select id="jewelsize">-->
+<!--                            <option value="">&#45;&#45;Choisissez votre taille&#45;&#45;</option>-->
+<!--                            <option value="1">XS</option>-->
+<!--                            <option value="2">S</option>-->
+<!--                            <option value="3">M</option>-->
+<!--                            <option value="4">L</option>-->
+<!--                            <option value="5">XL</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash;Description du bijou à saisir&ndash;&gt;-->
+<!--                    <div id="descriptionBijou">-->
+<!--                        <label for="jeweldescription">Description</label>-->
+<!--                        <textarea id="jeweldescription" rows="8" cols="33">-->
+
+<!--                        </textarea>-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash;Prix du bijou à saisir&ndash;&gt;-->
+<!--                    <div id="prixBijou">-->
+<!--                        <label for="Jewelprice">Prix</label>-->
+<!--                        <input type="text" id="Jewelprice" required size="10">-->
+<!--                    </div>-->
+
+<!--                    &lt;!&ndash;Bouton 'enregistrer nouveau bijou&ndash;&gt;-->
+<!--                    <div id="ValiderBijou">-->
+<!--                        <button type="submit">Enregistrer</button>-->
+<!--                    </div>-->
+
+<!--                </form>-->
+<!--            </div>-->
+
+
+<!--        </div>-->
+
+<!--    </main>-->
+
+<!--</header>-->
+
+
+<!--<footer>-->
+<!--    <span><a href="/ml">Mentions légales          </a></span>-->
+<!--    <span><a href="/cgv">| Conditions générales de vente</a></span>-->
+<!--</footer>-->
+<!--</body>-->
+<!--</html>-->

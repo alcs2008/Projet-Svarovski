@@ -1,25 +1,38 @@
 package fr.eni.controllers;
 
 import fr.eni.bll.JewelService;
+import fr.eni.bll.JewelTypeService;
 import fr.eni.bo.Jewel;
-import fr.eni.bo.User;
+import fr.eni.bo.JewelType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 
 @Controller("jewelBean")
+@RequestMapping("/jewel")
 public class JewelController {
 
     private JewelService jewelService;
+    private JewelTypeService jewelTypeService;
+
     @Autowired
-    public JewelController(JewelService jewelService) {
+    public JewelController(JewelService jewelService, JewelTypeService jewelTypeService ) {
+
         this.jewelService = jewelService;
+        this.jewelTypeService = jewelTypeService;
     }
-    @GetMapping("/jewel")
+
+    @ModelAttribute("allType")
+    public List<JewelType> typeList() {
+        return jewelTypeService.getTypesList();}
+    @GetMapping
     public String getBijoux() {
         return "jewel";
     }
@@ -31,7 +44,7 @@ public class JewelController {
         return "addjewel";
     }
 
-    @PostMapping("/jewelcreate")
+    @PostMapping("/addjewel")
     public String createJewel(@ModelAttribute("jewel") Jewel jewel) {
         jewelService.createNewJewel(jewel);
         return "jewel";

@@ -5,6 +5,30 @@
   <title>TP ENI</title>
 </head>
 <body>
+<header>
+  <h1>Svarovski</h1>
+  <div id="sv-img"></div>
+  <hr>
+  <!--<div class="headerImg"><img src="/images/banniereImg.jpg"></div>-->
+  <nav>
+    <ul class="sv-navbar-home">
+      <li>
+        <a href="/">Accueil</a>
+      </li>
+      <li>
+        <a href="/jewel">Nos bijoux</a>
+      </li>
+      <li>
+        <a href="/addjewel">Ajouter un bijou</a>
+      </li>
+      <li><a href="/user/login">Se connecter</a></li>
+    </ul>
+  </nav>
+  </div>
+
+  <hr>
+
+</header>
 <main>
   <form action="/user/subscription" method="post" data-th-object="${user}">
     <h2>S'inscrire</h2>
@@ -25,5 +49,9 @@
     </ul>
   </form>
 </main>
+<footer>
+  <span><a href="/ml">Mentions légales          </a></span>
+  <span><a href="/cgv">| Conditions générales de vente</a></span>
+</footer>
 </body>
 </html>
