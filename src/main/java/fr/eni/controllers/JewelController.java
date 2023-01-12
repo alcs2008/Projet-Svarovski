@@ -52,7 +52,7 @@ public class JewelController {
     @PostMapping("/addjewel")
     public String createJewel(@ModelAttribute("jewel") Jewel jewel) {
         jewelService.createNewJewel(jewel);
-        return "jewel";
+        return "redirect:/jewel";
     }
 
     @GetMapping("/ml")
