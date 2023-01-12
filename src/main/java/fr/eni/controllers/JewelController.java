@@ -32,6 +32,11 @@ public class JewelController {
     @ModelAttribute("allType")
     public List<JewelType> typeList() {
         return jewelTypeService.getTypesList();}
+
+    @ModelAttribute("allJewel")
+    public List<Jewel> jewelsList() {
+        return jewelService.getAllJewel();}
+
     @GetMapping
     public String getBijoux() {
         return "jewel";
@@ -49,11 +54,6 @@ public class JewelController {
         jewelService.createNewJewel(jewel);
         return "jewel";
     }
-
-/*    @GetMapping("/login")
-    public String getLoginPage() {
-        return "login";
-    }*/
 
     @GetMapping("/ml")
     public String getMl() {

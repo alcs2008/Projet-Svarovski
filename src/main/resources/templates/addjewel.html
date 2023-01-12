@@ -19,7 +19,7 @@
                 <a href="/jewel">Nos bijoux</a>
             </li>
             <li>
-                <a href="/addjewel">Ajouter un bijou</a>
+                <a href="/jewel/addjewel">Ajouter un bijou</a>
             </li>
             <li><a href="/user/login">Se connecter</a></li>
         </ul>
@@ -33,7 +33,8 @@
     <form action="/jewel/addjewel" method="post" data-th-object="${jewel}">
         <h2>Ajouter un bijou</h2>
         <ul>
-            <li><label for="inputJewelName">Nom du bijou</label><input type="text" name="inputJewelName" id="inputJewelName" data-th-field="*{jewelName}"></li>
+            <li><label for="inputJewelName">Nom du bijou : </label><input type="text" name="inputJewelName" id="inputJewelName" data-th-field="*{jewelName}"></li>
+            <li><label for="inputJewelPhoto">Lien vers la photo du bijou : </label><input type="text" name="inputJewelPhoto" id="inputJewelPhoto" data-th-field="*{jewelPhoto}"></li>
 
                 <label for="inputJewelType">Type de bijou : </label>
                 <select id="inputJewelType" data-th-field="*{jewelType}" required>
@@ -43,17 +44,16 @@
                     </option>
                 </select>
 
-
-            <li><label for="inputJewelDescriptive">Description</label> <input type="text" id="inputJewelDescriptive" data-th-field="*{jewelDescriptive}"></li>
-            <li><label for="inputJewelPrice">Prix</label> <input type="text" id="inputJewelPrice" data-th-field="*{jewelPrice}"></li>
+            <li><label for="inputJewelSize">Taille : </label><input type="text" name="inputJewelSize" id="inputJewelSize" data-th-field="*{jewelSize}"></li>
+            <li><label for="inputJewelDescriptive">Description : </label> <input type="text" id="inputJewelDescriptive" data-th-field="*{jewelDescriptive}"></li>
+            <li><label for="inputJewelPrice">Prix : </label> <input type="text" id="inputJewelPrice" data-th-field="*{jewelPrice}"></li>
 
             <button type="submit">Valider</button>
-            </li>
         </ul>
     </form>
 </main>
 <footer>
-    <span><a href="/ml">Mentions légales          </a></span>
+    <span><a href="/ml">Mentions légales</a></span>
     <span><a href="/cgv">| Conditions générales de vente</a></span>
 </footer>
 </body>
